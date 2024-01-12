@@ -18,6 +18,15 @@ body {
 	margin: 0;
 	height: 100%;
 	width: 100%;
+}
+
+.blur {
+	z-index: -1;
+	position: fixed;
+	top: -10;
+	left: 0;
+	width: 100%;
+	height: 100%;
 	backdrop-filter: blur(18px) saturate(50%) contrast(150%);
 }
 
