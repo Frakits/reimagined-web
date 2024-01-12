@@ -8,9 +8,7 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 		a.id = "ACTIVE";
 		document.querySelector(`${a.href.slice(a.href.indexOf("#"))}`).style.display = "inherit";
 		e.preventDefault();
-
-        document.querySelector(`${a.href.slice(a.href.indexOf("#"))}`).scrollIntoView({
-            behavior: 'smooth'
-        });
 	})
 }
+
+document.getElementById("ACTIVE").click();
