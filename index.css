@@ -63,7 +63,7 @@ body {
 	z-index: 1;
 	filter: brightness(0.7);
 	box-shadow: 0 -0.5rem 1rem 0.2rem #0f001a;
-	transform-origin: center 110%;
+	transform-origin: center bottom;
 	transform-box: view-box;
 	transform: scale(1.12, 1.12) scaleZ(2);
 	background-position: 0 100%, center, 0 90%;
