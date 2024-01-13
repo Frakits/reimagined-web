@@ -8,10 +8,19 @@ img {
 
 html {
 	margin: 0;
-	background-image: url(assets/bg.png);
+}
+html::before {
+	content: '';
+	position: fixed; 
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	background: url(assets/bg.png) no-repeat center center;
 	background-size: cover;
-	background-attachment: fixed;
-	background-position: center;
+	will-change: transform;
+	z-index: -1;
 }
 
 body {
@@ -94,6 +103,7 @@ body {
 	margin: auto;
 	width: 95%;
 	min-height: 100%;
+	max-height: max-content;
 	background-image: 
 		url("assets/halftone.svg"),
 		linear-gradient(0, #fff 0%, transparent 40%),
@@ -104,16 +114,16 @@ body {
 }
 
 .project {
-	outline: solid 1vw #4D8794;
 	border-radius: 20px;
 	margin: 5%;
-	display: flex;
-	height: min-content;
+	height: fit-content;
 	padding: 1%;
 	background: black;
+	overflow:hidden;
 }
 
 #DNB.project {
+	outline: solid 1vw #4D8794;
 	background-image: 
 		url("assets/circle.svg"),
 		url("assets/circle.svg"),
@@ -124,9 +134,21 @@ body {
 	background-position: center bottom, center -150vh, 0 0, 0 0;
 }
 
+#SAM.project {
+	border: solid 2vw black;
+	outline: solid 1vw white;
+	background: 
+		url("assets/weird_lines.webp") repeat-x bottom,
+		linear-gradient(180deg, rgb(228, 228, 228) 20%, rgb(179, 179, 179) 80%) no-repeat;
+	background-blend-mode: color-burn, normal;
+}
+
 .iab {
-	display: table-cell; 
+	float: left;
+	height: fit-content;
+	display: block; 
 	align: middle;
+	width: 50%;
 }
 
 .iab > * {
