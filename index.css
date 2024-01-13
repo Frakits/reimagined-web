@@ -89,11 +89,11 @@ body {
 }
 
 .category {
-	scroll-behavior: smooth;
+
 	border: thick solid #210038;
 	margin: auto;
 	width: 95%;
-	height: 100%;
+	min-height: 100%;
 	background-image: 
 		url("assets/halftone.svg"),
 		linear-gradient(0, #fff 0%, transparent 40%),
@@ -104,10 +104,24 @@ body {
 }
 
 .project {
+	outline: solid 1vw #4D8794;
+	border-radius: 20px;
+	margin: 5%;
 	display: flex;
 	height: min-content;
 	padding: 1%;
 	background: black;
+}
+
+#DNB.project {
+	background-image: 
+		url("assets/circle.svg"),
+		url("assets/circle.svg"),
+		url("assets/diagonal_lines.svg"),
+		linear-gradient(45deg, rgba(91,179,116,0.969) 0%, #4D8794 70%);
+	background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+	background-size: 600% 600%, 400% 200%, 100% 100%, 100% 100%;
+	background-position: center bottom, center -150vh, 0 0, 0 0;
 }
 
 .iab {
