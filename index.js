@@ -8,7 +8,8 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 			document.querySelector(`${ad.href.slice(ad.href.indexOf("#"))}`).style.display = "none"
 		}
 		a.id = "ACTIVE";
-		document.querySelector(`${a.href.slice(a.href.indexOf("#"))}`).style.display = "inherit";
+		let category = document.querySelector(`${a.href.slice(a.href.indexOf("#"))}`);
+		category.style.display = "inherit";
 		e.preventDefault();
 	})
 	a.addEventListener('mouseover', e => {

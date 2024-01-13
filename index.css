@@ -117,7 +117,7 @@ body {
 }
 
 #Socials.category {
-	display: "inherit";
+	display: inherit;
 	min-height: auto;
 }
 
@@ -166,3 +166,14 @@ body {
 	margin-right: auto;
 }
 
+.gallery-space {
+	justify-content: center;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 1%;
+}
+
+.gallery-space > img {
+	height: 20vmax;
+	margin: 1%;
+}
