@@ -98,9 +98,9 @@ body {
 		url("assets/halftone.svg"),
 		linear-gradient(0, #fff 0%, transparent 40%),
 		linear-gradient(360deg, #FFB6B6 30%, #912D9E 70%);
-	background-size: 100rem auto, 93% 93%, auto;
+	background-size: 180vh auto, 93% 93%, auto;
 	background-repeat: no-repeat;
-	background-position: 0 -70vw, center, 0 0;
+	background-position: 0 -70vh, center, 0 0;
 }
 
 .project {
