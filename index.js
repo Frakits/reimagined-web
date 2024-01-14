@@ -31,7 +31,17 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 
 for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
 	let childArray = Array.from(document.querySelector(".gallery-space-comics").children)
+	div.addEventListener("click", e => {
+		for (let imgs of document.querySelectorAll(".gallery-space-comics > img")) {
+			imgs.id = ""
+			imgs.style.translate = "0 0";
+		}
+		div.id = "ACTIVE";
+		for (let diver of document.querySelectorAll(".gallery-space-comics > .gallery-space")) diver.style.display = "none"
+		document.querySelector(`.gallery-space.${div.className}`).style.display = "inherit";
+	})
 	div.addEventListener('mouseover', e => {
+		if (div.id == "ACTIVE") return;
 		for (let ad of document.querySelectorAll(".gallery-space-comics > img")) {
 			let amount = 6 * (ad.id == "ACTIVE" ? 2 : 1);
 			if (ad != div) ad.style.translate = (childArray.indexOf(ad) < childArray.indexOf(div) ? `-${amount}% 0` : `${amount}% 0`);
@@ -63,13 +73,6 @@ for (let img of document.querySelectorAll(".gallery-space > img")) {
 		for (let img2 of document.querySelectorAll(".gallery-space > img")) {
 			img2.style.translate = `0 0`;
 		}
-	})
-}
-
-for (let img of document.querySelectorAll(".gallery-space-comics > img")) {
-	img.addEventListener("click", e => {
-		for (let diver of document.querySelectorAll(".gallery-space-comics > .gallery-space")) diver.style.display = "none"
-		document.querySelector(`.gallery-space.${img.className}`).style.display = "inherit";
 	})
 }
 
