@@ -1,4 +1,3 @@
-let childArray = Array.from(document.querySelector(".navbar").children)
 let indexImg = 0;
 let parentImg = null;
 for (let a of document.querySelectorAll(".navbar-options")) {
@@ -7,12 +6,15 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 			ad.style.translate = "0 0";
 			ad.id = ""
 			document.querySelector(`${ad.href.slice(ad.href.indexOf("#"))}`).style.display = "none"
+			document.querySelector(`${ad.href.slice(ad.href.indexOf("#"))}`).classList.remove("ACTIVE");
 		}
 		a.id = "ACTIVE";
 		let category = document.querySelector(`${a.href.slice(a.href.indexOf("#"))}`);
 		category.style.display = "inherit";
+		category.classList.add("ACTIVE");
 		e.preventDefault();
 	})
+	let childArray = Array.from(document.querySelector(".navbar").children)
 	a.addEventListener('mouseover', e => {
 		if (a.id == "ACTIVE") return;
 		for (let ad of document.querySelectorAll(".navbar-options")) {
@@ -27,12 +29,28 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 	})
 }
 
+for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
+	let childArray = Array.from(document.querySelector(".gallery-space-comics").children)
+	div.addEventListener('mouseover', e => {
+		for (let ad of document.querySelectorAll(".gallery-space-comics > img")) {
+			let amount = 6 * (ad.id == "ACTIVE" ? 2 : 1);
+			if (ad != div) ad.style.translate = (childArray.indexOf(ad) < childArray.indexOf(div) ? `-${amount}% 0` : `${amount}% 0`);
+		}
+	})
+	div.addEventListener('mouseout', e => {
+		for (let ad of document.querySelectorAll(".gallery-space-comics > img")) {
+			if (ad != div) ad.style.translate = "0 0";
+		}
+	})
+}
+
 for (let img of document.querySelectorAll(".gallery-space > img")) {
 	img.addEventListener("click", e => {
 		parentImg = img.parentElement.querySelectorAll("img");
 		indexImg = Array.from(parentImg).indexOf(img);
 		document.querySelector(".fullscreen-image").style.display = "flex";
 		document.querySelector(".fullscreen-image-content").src = img.src;
+		document.querySelector(".fullscreen-image-lens").src = img.src;
 	})
 	img.addEventListener("mouseover", e => {
 		for (let img2 of document.querySelectorAll(".gallery-space > img")) {
@@ -48,11 +66,17 @@ for (let img of document.querySelectorAll(".gallery-space > img")) {
 	})
 }
 
+for (let img of document.querySelectorAll(".gallery-space-comics > img")) {
+	img.addEventListener("click", e => {
+		for (let diver of document.querySelectorAll(".gallery-space-comics > .gallery-space")) diver.style.display = "none"
+		document.querySelector(`.gallery-space.${img.className}`).style.display = "inherit";
+	})
+}
+
 document.querySelector(".fullscreen-image").addEventListener("click", e => {
 	document.querySelector(".fullscreen-image").style.display = "none";
-	return false;
+	return true;
 })
-
 document.getElementById("ACTIVE").click();
 
 document.querySelector("#LEFT.fullscreen-image-button").addEventListener("click", e => {
@@ -67,8 +91,34 @@ document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("click
 	e.stopPropagation();
 })
 
+document.querySelector(".fullscreen-image").addEventListener("mousedown", e => {
+	document.querySelector(".fullscreen-image-lens").style.display = "inherit";
+})
+
+document.querySelector(".fullscreen-image").addEventListener("mouseup", e => {
+	document.querySelector(".fullscreen-image-lens").style.display = "none";
+})
+
+document.querySelector(".fullscreen-image-content").addEventListener("mousemove", doLensStuff)
+document.querySelector(".fullscreen-image-lens").addEventListener("mousemove", doLensStuff)
+document.querySelector(".content").addEventListener("click", e => {console.log(e.target.className); e.stopPropagation();})
+
+function doLensStuff(e) {
+	let lens = document.querySelector(".fullscreen-image-lens");
+	let ogImg = document.querySelector(".fullscreen-image-content");
+	let x = e.x - ogImg.getBoundingClientRect().left;
+	let y = e.y - ogImg.getBoundingClientRect().top;
+	let percentX = (x / ogImg.offsetWidth) * 100;
+	let percentY = (y / ogImg.offsetHeight) * 100;
+	lens.style.setProperty('--zoom-x', `${percentX}%`);
+	lens.style.setProperty('--zoom-y', `${percentY}%`);
+	lens.style.translate = `${-(percentX - 50)}% ${- (percentY - 50)}%`
+	lens.style.scale = "2 2"
+}
+
 function changeImage(index) {
 	document.querySelector(".fullscreen-image-content").src = parentImg[index].src;
+	document.querySelector(".fullscreen-image-lens").src = parentImg[index].src;
 }
 
 function mod(n, m) {
