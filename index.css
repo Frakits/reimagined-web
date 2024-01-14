@@ -104,7 +104,7 @@ body {
 .category {
 	border: thick solid #210038;
 	margin: auto;
-	width: 80%;
+	width: calc(370vw / 5);
 	min-height: 100%;
 	max-height: max-content;
 	background-image: 
@@ -135,7 +135,7 @@ body {
 }
 
 .project {
-	font-size: 1.9vmax;;
+	font-size: calc(17vmax / 10);
 	border-radius: 20px;
 	margin: 5%;
 	height: fit-content;
@@ -154,6 +154,68 @@ body {
 	background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 	background-size: 600% 600%, 400% 200%, 100% 100%, 100% 100%;
 	background-position: center bottom, center -150vh, 0 0, 0 0;
+}
+
+#DNB > .iab > a {
+	margin: 1vh;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	text-shadow:
+		-1.5px -1.5px 0 #225c30,
+		1.5px -1.5px 0 #225c30,
+		-1.5px 2px 0 #225c30,
+		1.5px 2px 0 #225c30;
+	font-size: 2vmax;
+	background: #9ee65a;
+	border: solid thick #4D8794;
+	border-radius: 16vh;
+	transition: 
+		scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+		filter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#DNB > .iab > a:hover {
+	scale: 1.1 1.1;
+	filter: brightness(120%);
+}
+
+#DNB > .iab > a:active {
+	transition: scale 0.05s cubic-bezier(0.34, 1.56, 0.64, 1);
+	scale: 0.9 0.9;
+	filter: brightness(70%);
+}
+
+#DNB > .iab > #Itch {
+	background: #fa5c5c;
+	border: solid #b94242;
+	border-radius: 10px !important;
+	font-size: 3vmax;
+	text-shadow:
+	-1.5px -1.5px 0 #b94242,
+	1.5px -1.5px 0 #b94242,
+	-1.5px 2px 0 #b94242,
+	1.5px 2px 0 #b94242;
+}
+
+#DNB > .iab > #Gamebanana {
+	background: linear-gradient(0deg, #131a20, #182430);
+	border: solid rgb(226, 200, 31);
+	text-shadow:
+		-1.5px -1.5px 0 #a7941a,
+		1.5px -1.5px 0 #a7941a,
+		-1.5px 2px 0 #a7941a,
+		1.5px 2px 0 #a7941a;
+}
+
+#DNB > .iab > #Funkipedia {
+	background: #002f59;
+	border: solid #339933;
+	text-shadow:
+		-1.5px -1.5px 0 #339933,
+		1.5px -1.5px 0 #339933,
+		-1.5px 2px 0 #339933,
+		1.5px 2px 0 #339933;
 }
 
 #SAM.project {
@@ -301,7 +363,7 @@ body {
 
 .profile {
 	border-radius: 20px;
-	margin: 1vmax;
+	margin: 4vmin;
 	padding: 1.5vmax;
 	background: black;
 	overflow: hidden;
@@ -360,4 +422,8 @@ body {
 	1.5px -1.5px 0 #03a11a,
 	-1.5px 1.5px 0 black,
 	1.5px 1.5px 0 black;
+}
+
+.hoverable-text:hover {
+	text-decoration: underline !important;
 }
