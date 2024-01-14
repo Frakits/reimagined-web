@@ -17,7 +17,7 @@ html::before {
 	top: 0;
 	left: 0;
 	background-color: white;
-	background: url(assets/bg.png) no-repeat center center;
+	background: url("assets/bg.webp") no-repeat center center;
 	background-size: cover;
 	will-change: transform;
 	z-index: -1;
