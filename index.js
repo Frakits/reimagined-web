@@ -55,7 +55,7 @@ for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
 	})
 }
 
-for (let img of document.querySelectorAll(".gallery-space > img")) {
+for (let img of document.querySelectorAll(".gallery-space > img, .gallery-space > .credited > img")) {
 	img.addEventListener("click", e => {
 		parentImg = img.parentElement.querySelectorAll("img");
 		indexImg = Array.from(parentImg).indexOf(img);
