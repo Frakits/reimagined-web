@@ -313,6 +313,16 @@ body {
 	z-index: 2;
 }
 
+.gallery-space-comics > #ACTIVEBOX {
+	transform-origin: top;
+	animation: comics-scale 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes comics-scale {
+	from {scale: 1 0}
+	to {scale: 1 1}
+}
+
 .gallery-space-comics > div {
 	flex-basis: 100%;
 	display: none;
@@ -340,7 +350,42 @@ body {
 }
 
 .fullscreen-image-button {
+	width: 7vh;
+	height: 7vh;
+	border-radius: 7vh;
+	background: url("assets/arrow.svg"), #1a1a1a80;
+	background-position: center, 0;
+	background-size: 75% 75%, cover;
+	background-repeat: no-repeat;
 	display: flex;
+	transition: 
+		scale 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+		filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#RIGHT.fullscreen-image-button {
+	scale: -1 1;
+}
+
+.fullscreen-image-button:hover {
+	filter: brightness(160%);
+	scale: 1.2 1.2;
+}
+
+#RIGHT.fullscreen-image-button:hover {
+	scale: -1.2 1.2;
+}
+
+.fullscreen-image-button:active {
+	transition: 
+		scale 0.1s cubic-bezier(0.16, 1, 0.3, 1),
+		filter 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+	filter: brightness(70%);
+	scale: 0.95 0.95;
+}
+
+#RIGHT.fullscreen-image-button:active {
+	scale: -0.95 0.95;
 }
 
 .fullscreen-image-lens {

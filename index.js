@@ -39,6 +39,7 @@ for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
 		div.id = "ACTIVE";
 		for (let diver of document.querySelectorAll(".gallery-space-comics > .gallery-space")) diver.style.display = "none"
 		document.querySelector(`.gallery-space.${div.className}`).style.display = "inherit";
+		document.querySelector(`.gallery-space.${div.className}`).id = "ACTIVEBOX";
 	})
 	div.addEventListener('mouseover', e => {
 		if (div.id == "ACTIVE") return;
@@ -76,7 +77,7 @@ for (let img of document.querySelectorAll(".gallery-space > img")) {
 	})
 }
 
-document.querySelector(".fullscreen-image").addEventListener("click", e => {
+document.querySelector(".fullscreen-image").addEventListener("mousedown", e => {
 	document.querySelector(".fullscreen-image").style.display = "none";
 	return true;
 })
@@ -94,28 +95,58 @@ document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("click
 	e.stopPropagation();
 })
 
-document.querySelector(".fullscreen-image").addEventListener("mousedown", e => {
-	document.querySelector(".fullscreen-image-lens").style.display = "inherit";
+document.querySelector("#LEFT.fullscreen-image-button").addEventListener("mousedown", e => {
+	if (e.target.className != "fullscreen-image-content") e.stopPropagation();
+})
+
+document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("mousedown", e => {
+	if (e.target.className != "fullscreen-image-content") e.stopPropagation();
+})
+
+document.querySelector(".fullscreen-image-content").addEventListener("mousedown", e => {
+	document.querySelector(".fullscreen-image-lens").id = "ACTIVATE";
+	let ev = new MouseEvent("mousemove", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+        clientX: e.x,
+        clientY: e.y
+    });
+	document.querySelector(".fullscreen-image-content").dispatchEvent(ev);
 })
 
 document.querySelector(".fullscreen-image").addEventListener("mouseup", e => {
-	document.querySelector(".fullscreen-image-lens").style.display = "none";
+	document.querySelector(".fullscreen-image-lens").id = "";
+	let ev = new MouseEvent("mousemove", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+        clientX: e.x,
+        clientY: e.y
+    });
+	document.querySelector(".fullscreen-image-content").dispatchEvent(ev);
 })
 
 document.querySelector(".fullscreen-image-content").addEventListener("mousemove", doLensStuff)
 document.querySelector(".fullscreen-image-lens").addEventListener("mousemove", doLensStuff)
-document.querySelector(".content").addEventListener("click", e => {console.log(e.target.className); e.stopPropagation();})
+document.querySelector(".content").addEventListener("mousedown", e => {e.stopPropagation();})
 
 function doLensStuff(e) {
 	let lens = document.querySelector(".fullscreen-image-lens");
 	let ogImg = document.querySelector(".fullscreen-image-content");
+	if (lens.id == "ACTIVATE" && ((e.x > ogImg.getBoundingClientRect().left && e.x < ogImg.getBoundingClientRect().right) && (e.y > ogImg.getBoundingClientRect().top && e.y < ogImg.getBoundingClientRect().bottom))) {
+		lens.style.display = "inherit"
+	}
+	else {
+		lens.style.display = "none"
+	}
 	let x = e.x - ogImg.getBoundingClientRect().left;
 	let y = e.y - ogImg.getBoundingClientRect().top;
 	let percentX = (x / ogImg.offsetWidth) * 100;
 	let percentY = (y / ogImg.offsetHeight) * 100;
 	lens.style.setProperty('--zoom-x', `${percentX}%`);
 	lens.style.setProperty('--zoom-y', `${percentY}%`);
-	lens.style.translate = `${-(percentX - 50)}% ${- (percentY - 50)}%`
+	lens.style.translate = `${-(percentX - 50)}% ${-(percentY - 45)}%`
 	lens.style.scale = "2 2"
 }
 
