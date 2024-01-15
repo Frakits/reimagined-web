@@ -1,5 +1,6 @@
 let indexImg = 0;
 let parentImg = null;
+let viewport = document.querySelector('meta[name="viewport"]');
 for (let a of document.querySelectorAll(".navbar-options")) {
 	a.addEventListener("click", e => {
 		for (let ad of document.querySelectorAll(".navbar-options")) {
@@ -62,6 +63,9 @@ for (let img of document.querySelectorAll(".gallery-space > img, .gallery-space 
 		document.querySelector(".fullscreen-image").style.display = "flex";
 		document.querySelector(".fullscreen-image-content").src = img.src;
 		document.querySelector(".fullscreen-image-lens").src = img.src;
+		document.body.style.height = "100%";
+		document.body.style.overflowY = "hidden";
+		viewport.content = "initial-zoom: 1.0, max-scale=12";
 	})
 	img.addEventListener("mouseover", e => {
 		for (let img2 of document.querySelectorAll(".gallery-space > img")) {
@@ -79,6 +83,9 @@ for (let img of document.querySelectorAll(".gallery-space > img, .gallery-space 
 
 document.querySelector(".fullscreen-image").addEventListener("mousedown", e => {
 	document.querySelector(".fullscreen-image").style.display = "none";
+	document.body.style.height = "auto";
+	document.body.style.overflowY = "scroll";
+	viewport.content = 'width=device-width, initial-zoom=1, max-scale=12';
 	return true;
 })
 document.getElementById("ACTIVE").click();
@@ -86,12 +93,14 @@ document.getElementById("ACTIVE").click();
 document.querySelector("#LEFT.fullscreen-image-button").addEventListener("click", e => {
 	indexImg = mod(indexImg - 1, parentImg.length);
 	changeImage(indexImg);
+	viewport.content = 'initial-zoom: 1.0, max-scale=12';
 	e.stopPropagation();
 })
 
 document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("click", e => {
 	indexImg = mod(indexImg + 1, parentImg.length);
 	changeImage(indexImg);
+	viewport.content = 'initial-zoom: 1.0, max-scale=12';
 	e.stopPropagation();
 })
 
