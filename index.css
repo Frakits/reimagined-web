@@ -280,6 +280,7 @@ body {
 		transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
 		translate 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	margin: 1%;
+	overflow: hidden;
 }
 
 .gallery-space > .credited > img {
@@ -452,20 +453,16 @@ body {
 .profile {
 	border-radius: 20px;
 	margin: 4vmin;
-	padding: 1.5vmax;
 	background: black;
 	overflow: hidden;
 }
 
-.profile > button {
-}
-
 .profile > img {
 	border-radius: 15px;
-	margin: 1vmax;
+	margin-left: 2vmax;
+	margin-right: 2vmax;
 	float: left;
 	width: 20vmax;
-	height: 20vmax;
 }
 
 .profile > p {
@@ -473,9 +470,92 @@ body {
 	font-size: 2vmax;
 }
 
+.profile > .buttons {
+	width: -webkit-fill-available;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.profile > div > a {
+	text-align: center;
+	width: calc(100% - 35%);
+	text-decoration: none;
+	float: left;
+	margin: 0.5vmax auto;	
+	border-radius: 16vh;
+	padding: 0.5vmax 10%;
+	font-size: 2vmax;
+	background: black;
+	transition: 
+		scale 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+		box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+		filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.profile > div > a:hover {
+	filter: brightness(140%);
+	scale: 1.1 1.1;
+}
+
+.profile > div > a:active {
+	transition: scale 0.05s cubic-bezier(0.34, 1.56, 0.64, 1);
+	scale: 0.85 0.85;
+	filter: brightness(70%);
+}
+
+.profile > div > #TwitterButton {
+	color: white; 
+	text-shadow:
+		-1.5px -1.5px 0 #1DA1F2,
+		1.5px -1.5px 0 #1DA1F2,
+		-1.5px 1.5px 0 #1DA1F2,
+		1.5px 1.5px 0 #1DA1F2; 
+	background: #44b7ff;
+	border: solid medium #1DA1F2;
+}
+
+.profile > div > #YoutubeButton {
+	color: white; 
+	text-shadow:
+		-1.5px -1.5px 0 red,
+		1.5px -1.5px 0 red,
+		-1.5px 1.5px 0 red,
+		1.5px 1.5px 0 red; 
+	background: #dd0000;
+	border: solid medium red;
+}
+
+.profile > div > #NewgroundsButton {
+	font-size: 20px !important;
+	color: white; 
+	background: linear-gradient(#fda038, #fd3941);
+	border-radius: 10px;
+}
+
 #GlitchenCracken.profile {
+	border: solid thick #ff9100;
 	background: url("assets/profiles/glitch/bg.jpg");
 	background-size: cover;
+}
+
+#GlitchenCracken.profile > img {
+	filter: blur(20px);
+}
+
+#GlitchenCracken.profile > div > a {
+	background: repeating-conic-gradient(#0000001e 0% 25%, transparent 0% 50%) 50% / 7vmax 7vmax, linear-gradient(#ff0040, #ff9100);
+	padding: 1vmax;
+	border-radius: 1vmax;
+	border: solid medium #ff9100;
+	color: white;
+	font-size: 2.5vmax;
+	text-shadow:
+		-1.5px -1.5px 0 #ff9100,
+		1.5px -1.5px 0 #ff9100,
+		-1.5px 1.5px 0 #ff0040,
+		1.5px 1.5px 0 #ff0040;
+	box-shadow: 1px 0 25px 0.1px #6d001d;
 }
 
 #GlitchenCracken.profile > p {
@@ -499,6 +579,10 @@ body {
 	1.5px 1.5px 0 #300138;
 }
 
+#Vortex.profile > div > a {
+	box-shadow: 1px 0 25px 0.1px #17092c;
+}
+
 #SaiZons.profile {
 	background: url("https://static.vecteezy.com/system/resources/thumbnails/003/217/796/small/cyber-hacker-attack-background-skull-vector.jpg");
 	background-size: cover;
@@ -510,6 +594,10 @@ body {
 	1.5px -1.5px 0 #03a11a,
 	-1.5px 1.5px 0 black,
 	1.5px 1.5px 0 black;
+}
+
+#SaiZons.profile > div > a {
+	box-shadow: 1px 0 25px 0.1px #0a2402;
 }
 
 .hoverable-text:hover {
@@ -547,4 +635,8 @@ body {
 		-1.5px 1.5px 0 black,
 		1.5px 1.5px 0 black; 
 	font-size: 2.2vmax;
+}
+
+#Tumblr:hover, #Twitter:hover, #Discord:hover {
+	text-decoration: underline;
 }
