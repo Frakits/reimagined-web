@@ -1,17 +1,18 @@
 let indexImg = 0;
 let parentImg = null;
 let viewport = document.querySelector('meta[name="viewport"]');
+
+let category = document.querySelector(`${document.getElementById("ACTIVE").href.slice(document.getElementById("ACTIVE").href.indexOf("#"))}`);
+category.classList.add("ACTIVE");
 for (let a of document.querySelectorAll(".navbar-options")) {
 	a.addEventListener("click", async e => {
 		for (let ad of document.querySelectorAll(".navbar-options")) {
 			ad.style.translate = "0 0";
 			ad.id = ""
-			document.querySelector(`${ad.href.slice(ad.href.indexOf("#"))}`).style.display = "none"
 			document.querySelector(`${ad.href.slice(ad.href.indexOf("#"))}`).classList.remove("ACTIVE");
 		}
 		a.id = "ACTIVE";
 		let category = document.querySelector(`${a.href.slice(a.href.indexOf("#"))}`);
-		category.style.display = "inherit";
 		category.classList.add("ACTIVE");
 		e.preventDefault();
 	})
@@ -88,7 +89,7 @@ document.querySelector(".fullscreen-image").addEventListener("mousedown", async 
 	viewport.content = 'width=device-width, initial-zoom=1, max-scale=12';
 	return true;
 })
-document.getElementById("ACTIVE").click();
+
 
 document.querySelector("#LEFT.fullscreen-image-button").addEventListener("click", async e => {
 	indexImg = mod(indexImg - 1, parentImg.length);

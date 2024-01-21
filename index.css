@@ -1,3 +1,8 @@
+@font-face {
+	font-family: Baloo;
+	src: url("assets/fonts/Baloo-Regular.woff2");
+}
+
 a, p, div {
 	-webkit-tap-highlight-color: transparent;
 	font-family: 'Baloo';
@@ -128,6 +133,7 @@ body {
 }
 
 .ACTIVE.category {
+	display: block;
 	animation: squish 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
