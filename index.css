@@ -458,14 +458,13 @@ body {
 }
 
 .profile > img {
-	border-radius: 15px;
-	margin-left: 2vmax;
-	margin-right: 2vmax;
+	margin-left: 1vmax;
 	float: left;
-	width: 20vmax;
+	height: 30vmax;
 }
 
 .profile > p {
+	margin-top: 5vmax;
 	color: white;
 	font-size: 2vmax;
 }
@@ -539,10 +538,6 @@ body {
 	background-size: cover;
 }
 
-#GlitchenCracken.profile > img {
-	filter: blur(20px);
-}
-
 #GlitchenCracken.profile > div > a {
 	background: repeating-conic-gradient(#0000001e 0% 25%, transparent 0% 50%) 50% / 7vmax 7vmax, linear-gradient(#ff0040, #ff9100);
 	padding: 1vmax;
@@ -564,6 +559,10 @@ body {
 		1.5px -1.5px 0 #ff9100,
 		-1.5px 1.5px 0 #ff0040,
 		1.5px 1.5px 0 #ff0040;
+}
+
+#GlitchenCracken.profile > img {
+	filter: drop-shadow(-12px 12px 16px #630920bd);
 }
 
 #Vortex.profile { 
