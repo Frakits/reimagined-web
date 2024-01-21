@@ -1,0 +1,21 @@
+{
+  "name": "optimize-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cssnano": "^6.0.3",
+    "fs": "^0.0.1-security",
+    "html-minifier": "^4.0.0",
+    "postcss": "^8.4.33",
+    "terser": "^5.27.0"
+  }
+}
