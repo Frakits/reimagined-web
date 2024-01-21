@@ -2,7 +2,7 @@ let indexImg = 0;
 let parentImg = null;
 let viewport = document.querySelector('meta[name="viewport"]');
 for (let a of document.querySelectorAll(".navbar-options")) {
-	a.addEventListener("click", e => {
+	a.addEventListener("click", async e => {
 		for (let ad of document.querySelectorAll(".navbar-options")) {
 			ad.style.translate = "0 0";
 			ad.id = ""
@@ -16,14 +16,14 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 		e.preventDefault();
 	})
 	let childArray = Array.from(document.querySelector(".navbar").children)
-	a.addEventListener('mouseover', e => {
+	a.addEventListener('mouseover', async e => {
 		if (a.id == "ACTIVE") return;
 		for (let ad of document.querySelectorAll(".navbar-options")) {
 			let amount = 6 * (ad.id == "ACTIVE" ? 2 : 1);
 			if (ad != a) ad.style.translate = (childArray.indexOf(ad) < childArray.indexOf(a) ? `-${amount}% 0` : `${amount}% 0`);
 		}
 	})
-	a.addEventListener('mouseout', e => {
+	a.addEventListener('mouseout', async e => {
 		for (let ad of document.querySelectorAll(".navbar-options")) {
 			if (ad != a) ad.style.translate = "0 0";
 		}
@@ -32,7 +32,7 @@ for (let a of document.querySelectorAll(".navbar-options")) {
 
 for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
 	let childArray = Array.from(document.querySelector(".gallery-space-comics").children)
-	div.addEventListener("click", e => {
+	div.addEventListener("click", async e => {
 		for (let imgs of document.querySelectorAll(".gallery-space-comics > img")) {
 			imgs.id = ""
 			imgs.style.translate = "0 0";
@@ -42,14 +42,14 @@ for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
 		document.querySelector(`.gallery-space.${div.className}`).style.display = "inherit";
 		document.querySelector(`.gallery-space.${div.className}`).id = "ACTIVEBOX";
 	})
-	div.addEventListener('mouseover', e => {
+	div.addEventListener('mouseover', async e => {
 		if (div.id == "ACTIVE") return;
 		for (let ad of document.querySelectorAll(".gallery-space-comics > img")) {
 			let amount = 6 * (ad.id == "ACTIVE" ? 2 : 1);
 			if (ad != div) ad.style.translate = (childArray.indexOf(ad) < childArray.indexOf(div) ? `-${amount}% 0` : `${amount}% 0`);
 		}
 	})
-	div.addEventListener('mouseout', e => {
+	div.addEventListener('mouseout', async e => {
 		for (let ad of document.querySelectorAll(".gallery-space-comics > img")) {
 			if (ad != div) ad.style.translate = "0 0";
 		}
@@ -57,7 +57,7 @@ for (let div of document.querySelectorAll(".gallery-space-comics > img")) {
 }
 
 for (let img of document.querySelectorAll(".gallery-space > img, .gallery-space > .credited > img")) {
-	img.addEventListener("click", e => {
+	img.addEventListener("click", async e => {
 		parentImg = img.parentElement.querySelectorAll("img");
 		indexImg = Array.from(parentImg).indexOf(img);
 		document.querySelector(".fullscreen-image").style.display = "flex";
@@ -67,21 +67,21 @@ for (let img of document.querySelectorAll(".gallery-space > img, .gallery-space 
 		document.body.style.overflowY = "hidden";
 		viewport.content = "initial-zoom: 1.0, max-scale=12";
 	})
-	img.addEventListener("mouseover", e => {
+	img.addEventListener("mouseover", async e => {
 		for (let img2 of document.querySelectorAll(".gallery-space > img")) {
 			let top = img2.getBoundingClientRect().top - img.getBoundingClientRect().top;
 			let left = img2.getBoundingClientRect().left - img.getBoundingClientRect().left;
 			if (Math.abs((left + top) / 2) < 100) img2.style.translate = `${left / 100}px ${top / 100}px`
 		}
 	})
-	img.addEventListener("mouseout", e => {
+	img.addEventListener("mouseout", async e => {
 		for (let img2 of document.querySelectorAll(".gallery-space > img")) {
 			img2.style.translate = `0 0`;
 		}
 	})
 }
 
-document.querySelector(".fullscreen-image").addEventListener("mousedown", e => {
+document.querySelector(".fullscreen-image").addEventListener("mousedown", async e => {
 	document.querySelector(".fullscreen-image").style.display = "none";
 	document.body.style.height = "auto";
 	document.body.style.overflowY = "scroll";
@@ -90,29 +90,29 @@ document.querySelector(".fullscreen-image").addEventListener("mousedown", e => {
 })
 document.getElementById("ACTIVE").click();
 
-document.querySelector("#LEFT.fullscreen-image-button").addEventListener("click", e => {
+document.querySelector("#LEFT.fullscreen-image-button").addEventListener("click", async e => {
 	indexImg = mod(indexImg - 1, parentImg.length);
 	changeImage(indexImg);
 	viewport.content = 'initial-zoom: 1.0, max-scale=12';
 	e.stopPropagation();
 })
 
-document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("click", e => {
+document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("click", async e => {
 	indexImg = mod(indexImg + 1, parentImg.length);
 	changeImage(indexImg);
 	viewport.content = 'initial-zoom: 1.0, max-scale=12';
 	e.stopPropagation();
 })
 
-document.querySelector("#LEFT.fullscreen-image-button").addEventListener("mousedown", e => {
+document.querySelector("#LEFT.fullscreen-image-button").addEventListener("mousedown", async e => {
 	if (e.target.className != "fullscreen-image-content") e.stopPropagation();
 })
 
-document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("mousedown", e => {
+document.querySelector("#RIGHT.fullscreen-image-button").addEventListener("mousedown", async e => {
 	if (e.target.className != "fullscreen-image-content") e.stopPropagation();
 })
 
-document.querySelector(".fullscreen-image-content").addEventListener("mousedown", e => {
+document.querySelector(".fullscreen-image-content").addEventListener("mousedown", async e => {
 	document.querySelector(".fullscreen-image-lens").id = "ACTIVATE";
 	let ev = new MouseEvent("mousemove", {
         view: window,
@@ -124,7 +124,7 @@ document.querySelector(".fullscreen-image-content").addEventListener("mousedown"
 	document.querySelector(".fullscreen-image-content").dispatchEvent(ev);
 })
 
-document.querySelector(".fullscreen-image").addEventListener("mouseup", e => {
+document.querySelector(".fullscreen-image").addEventListener("mouseup", async e => {
 	document.querySelector(".fullscreen-image-lens").id = "";
 	let ev = new MouseEvent("mousemove", {
         view: window,
