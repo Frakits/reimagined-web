@@ -1,0 +1,111 @@
+#Socials.category {
+	display: inherit;
+	min-height: auto;
+}
+
+.project {
+	font-size: calc(17vmax / 10);
+	border-radius: 20px;
+	margin: 5%;
+	height: fit-content;
+	padding: 1%;
+	background: black;
+	overflow: hidden;
+}
+
+#DNB.project {
+	outline: solid 1vw #4D8794;
+	background-image: 
+		url("assets/circle.svg"),
+		url("assets/circle.svg"),
+		url("assets/diagonal_lines.svg"),
+		linear-gradient(45deg, rgba(91,179,116,0.969) 0%, #4D8794 70%);
+	background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+	background-size: 600% 600%, 400% 200%, 100% 100%, 100% 100%;
+	background-position: center bottom, center -150vh, 0 0, 0 0;
+}
+
+#DNB > .iab > a {
+	margin: 1vh;
+	text-align: center;
+	text-decoration: none;
+	color: white;
+	text-shadow:
+		-1.5px -1.5px 0 #225c30,
+		1.5px -1.5px 0 #225c30,
+		-1.5px 2px 0 #225c30,
+		1.5px 2px 0 #225c30;
+	font-size: 2vmax;
+	background: #9ee65a;
+	border: solid thick #4D8794;
+	border-radius: 16vh;
+	transition: 
+		scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+		filter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+#DNB > .iab > a:hover {
+	scale: 1.1 1.1;
+	filter: brightness(120%);
+}
+
+#DNB > .iab > a:active {
+	transition: scale 0.05s cubic-bezier(0.34, 1.56, 0.64, 1);
+	scale: 0.9 0.9;
+	filter: brightness(70%);
+}
+
+#DNB > .iab > #Itch {
+	background: #fa5c5c;
+	border: solid #b94242;
+	border-radius: 10px !important;
+	font-size: 3vmax;
+	text-shadow:
+	-1.5px -1.5px 0 #b94242,
+	1.5px -1.5px 0 #b94242,
+	-1.5px 2px 0 #b94242,
+	1.5px 2px 0 #b94242;
+}
+
+#DNB > .iab > #Gamebanana {
+	background: linear-gradient(0deg, #131a20, #182430);
+	border: solid rgb(226, 200, 31);
+	text-shadow:
+		-1.5px -1.5px 0 #a7941a,
+		1.5px -1.5px 0 #a7941a,
+		-1.5px 2px 0 #a7941a,
+		1.5px 2px 0 #a7941a;
+}
+
+#DNB > .iab > #Funkipedia {
+	background: #002f59;
+	border: solid #339933;
+	text-shadow:
+		-1.5px -1.5px 0 #339933,
+		1.5px -1.5px 0 #339933,
+		-1.5px 2px 0 #339933,
+		1.5px 2px 0 #339933;
+}
+
+#SAM.project {
+	border: solid 2vw black;
+	outline: solid 1vw white;
+	background: 
+		url("assets/weird_lines.webp") repeat-x bottom,
+		linear-gradient(180deg, rgb(228, 228, 228) 20%, rgb(179, 179, 179) 80%) no-repeat;
+	background-blend-mode: color-burn, normal;
+}
+
+.iab {
+	float: left;
+	height: fit-content;
+	display: block; 
+	align: middle;
+	width: 50%;
+}
+
+.iab > * {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}

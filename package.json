@@ -16,6 +16,7 @@
     "fs": "^0.0.1-security",
     "html-minifier": "^4.0.0",
     "postcss": "^8.4.33",
+    "sass": "^1.70.0",
     "terser": "^5.27.0"
   }
 }
