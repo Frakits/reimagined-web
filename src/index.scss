@@ -100,7 +100,7 @@ body {
 		transform: scale(1.12, 1.12) scaleZ(2);
 		background-position: 0 100%, center, 0 90%;
 	}
-	#ACTIVE {
+	@at-root #ACTIVE {
 		filter: brightness(105%);
 		z-index: 2;
 		box-shadow: 0 -0.5rem 1rem 0.2rem #0f001a;
@@ -129,7 +129,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: 0 -70vh, center, 0 0;
 
-	.ACTIVE {
+	@at-root .ACTIVE {
 		display: block;
 		animation: squish 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 	}
