@@ -1,6 +1,7 @@
 @use "scss/projects.scss";
 @use "scss/gallery.scss";
 @use "scss/team.scss";
+@import "scss/text-stroke.scss";
 
 @font-face {
 	font-display: swap;
@@ -147,6 +148,11 @@ body {
 	to {scale: 1 1}
 }
 
+#Socials.category {
+	display: inherit;
+	min-height: auto;
+}
+
 .hoverable-text:hover {
 	text-decoration: underline !important;
 }
@@ -154,33 +160,21 @@ body {
 #Discord {
 	text-decoration: none; 
 	color: #5865F2; 
-	text-shadow:
-		-1.5px -1.5px 0 black,
-		1.5px -1.5px 0 black,
-		-1.5px 1.5px 0 black,
-		1.5px 1.5px 0 black; 
+	@include text-stroke(1.5, black);
 	font-size: 2.2vmax;
 }
 
 #Twitter {
 	text-decoration: none; 
 	color: #1DA1F2; 
-	text-shadow:
-		-1.5px -1.5px 0 black,
-		1.5px -1.5px 0 black,
-		-1.5px 1.5px 0 black,
-		1.5px 1.5px 0 black; 
+	@include text-stroke(1.5, black);
 	font-size: 2.2vmax;
 }
 
 #Tumblr {
 	text-decoration: none; 
 	color: #56BC8A; 
-	text-shadow:
-		-1.5px -1.5px 0 black,
-		1.5px -1.5px 0 black,
-		-1.5px 1.5px 0 black,
-		1.5px 1.5px 0 black; 
+	@include text-stroke(1.5, black);
 	font-size: 2.2vmax;
 }
 
