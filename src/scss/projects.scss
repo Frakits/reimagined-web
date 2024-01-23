@@ -32,7 +32,7 @@
 				scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
 				filter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-			@at-root #Itch {
+			@at-root #Itch#{&} {
 				background: #fa5c5c;
 				border: solid #b94242;
 				border-radius: 10px !important;
@@ -43,7 +43,7 @@
 				-1.5px 2px 0 #b94242,
 				1.5px 2px 0 #b94242;
 			}
-			@at-root #Gamebanana {
+			@at-root #Gamebanana#{&} {
 				background: linear-gradient(0deg, #131a20, #182430);
 				border: solid rgb(226, 200, 31);
 				text-shadow:
@@ -52,7 +52,7 @@
 					-1.5px 2px 0 #a7941a,
 					1.5px 2px 0 #a7941a;
 			}
-			@at-root #Funkipedia {
+			@at-root #Funkipedia#{&} {
 				background: #002f59;
 				border: solid #339933;
 				text-shadow:
