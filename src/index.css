@@ -457,7 +457,7 @@ body {
   background-image: url("assets/halftone.svg"), linear-gradient(0, #fff 0%, transparent 40%), linear-gradient(360deg, #FFB6B6 30%, #912D9E 70%);
   background-repeat: repeat-x, no-repeat, no-repeat;
   background-size: auto 400%, 93% 90%, 200% 200%;
-  background-position: 0 110%, center, 0 50%;
+  background-position: center 110%, center, 0 50%;
   text-decoration: none;
   transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background-position 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), translate 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
@@ -496,8 +496,8 @@ body {
   max-height: max-content;
   background-image: url("assets/halftone.svg"), linear-gradient(0, #fff 0%, transparent 40%), linear-gradient(360deg, #FFB6B6 30%, #912D9E 70%);
   background-size: 180vh auto, 93% 93%, auto;
-  background-repeat: no-repeat;
-  background-position: 0 -70vh, center, 0 0;
+  background-repeat: repeat-x, no-repeat, no-repeat;
+  background-position: center -70vh, center, 0 0;
 }
 .ACTIVE {
   display: block;
