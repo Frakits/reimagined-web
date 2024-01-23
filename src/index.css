@@ -266,7 +266,7 @@
 .profile > img {
   margin-left: 1vmax;
   float: left;
-  height: 30vmax;
+  width: 50%;
 }
 #GlitchenCracken.profile > img {
   filter: drop-shadow(-12px 12px 16px rgba(99, 9, 32, 0.7411764706));
