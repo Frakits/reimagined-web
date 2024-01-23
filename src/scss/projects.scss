@@ -75,13 +75,11 @@
 	@at-root #DNB#{&} {
 		outline: solid 1vw #4D8794;
 		background-image: 
-			url("assets/circle.svg"),
-			url("assets/circle.svg"),
 			url("assets/diagonal_lines.svg"),
 			linear-gradient(45deg, rgba(91,179,116,0.969) 0%, #4D8794 70%);
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: 600% 600%, 400% 200%, 100% 100%, 100% 100%;
-		background-position: center bottom, center -150vh, 0 0, 0 0;
+		background-repeat: repeat, no-repeat;
+		background-size: 100% 100%, 100% 100%;
+		background-position: 0 0, 0 0;
 
 		> p {
 			color: white; width: 100%; 
