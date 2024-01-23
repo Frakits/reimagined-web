@@ -264,12 +264,22 @@
   overflow: hidden;
 }
 .profile > img {
+  display: flex;
+  align-items: flex-end;
   margin-left: 1vmax;
   float: left;
   height: 30vmax;
 }
 #GlitchenCracken.profile > img {
   filter: drop-shadow(-12px 12px 16px rgba(99, 9, 32, 0.7411764706));
+}
+
+#Vortex.profile > img {
+  filter: drop-shadow(-12px 12px 20px rgba(149, 67, 255, 0.1725490196));
+}
+
+#SaiZons.profile > img {
+  filter: drop-shadow(-12px 12px 16px rgba(3, 161, 27, 0.4196078431));
 }
 
 .profile > p {
@@ -285,7 +295,7 @@
   text-shadow: -1.5px -1.5px 0 #e716a2, 1.5px -1.5px 0 #e716a2, -1.5px 1.5px 0 #300138, 1.5px 1.5px 0 #300138;
 }
 
-#Saizons.profile > p {
+#SaiZons.profile > p {
   text-shadow: -1.5px -1.5px 0 #03a11a, 1.5px -1.5px 0 #03a11a, -1.5px 1.5px 0 black, 1.5px 1.5px 0 black;
 }
 
@@ -353,17 +363,21 @@
   background: linear-gradient(#fda038, #fd3941);
   border-radius: 10px;
 }
-.profile #GlitchenCracken {
+#GlitchenCracken.profile {
   border: solid thick #ff9100;
   background: url("assets/profiles/glitch/bg.jpg");
   background-size: cover;
 }
-.profile #Vortex {
+
+#Vortex.profile {
+  border: solid thick #50009b;
   background: url("https://pbs.twimg.com/profile_banners/1304903098146656258/1699058325/600x200");
   background-size: cover;
 }
-.profile #SaiZons {
-  background: url("https://static.vecteezy.com/system/resources/thumbnails/003/217/796/small/cyber-hacker-attack-background-skull-vector.jpg");
+
+#SaiZons.profile {
+  border: solid thick #03a11a;
+  background-image: url("https://static.vecteezy.com/system/resources/thumbnails/003/217/796/small/cyber-hacker-attack-background-skull-vector.jpg");
   background-size: cover;
 }
 
